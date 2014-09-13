@@ -1,0 +1,98 @@
+<div class="project-details">
+	<p style="text-align:right; line-height:1">
+	  <strong>Program Or TO Name:</strong>
+	  <%= @employee.programOrTOName %>
+	</p>
+	
+	<p style="text-align:right; line-height:1">
+	  <strong>ES Business Unit:</strong>
+	  <%= @employee.ESBusinessUnitPickFromDropDown %>
+	</p>
+	<p style="text-align:right; line-height:1">
+	  <strong>Program Project Manager:</strong>
+	  <%= @employee.programProjectManagerPickFromDropDown %>
+	</p>
+	<h1>
+	  <%= @employee.contractPickFromDropDown %>
+	</h1>
+</div>
+<hr />
+<div class="work-locations">
+	<h3>Work Locations:</h3> 
+	<ul>
+		<li>Is Telecommuting Allowed? <%= @employee.telecommutingAllowed %></li>
+			<li style="margin-left: 20px;"><u>Explanation</u>: <%= @employee.explanation %></li>
+		<li>Work Location(s)</li>
+			<li style="margin-left: 20px;">Location name: <%= @employee.workLocationName %> </li>
+			<li style="margin-left: 40px;"><u>Primary</u>? <%= @employee.isPrimary %> </li>
+			<li style="margin-left: 40px;"><u>Type</u>: <%= @employee.work %></li>
+			<li style="margin-left: 40px;"><u>Address</u>: <%= @employee.addressWork %></li>
+	</ul>
+</div>
+<hr />
+<div class="contract-overview">
+	<h3>Contract Overview</h3>
+	<p><u>Description of contract</u>: <%= @employee.descriptionOfContract %></p>
+	<ul>
+		<li><u>Has ODCs</u>? <%= @employee.hasODCs %></li>
+		<li><u>ES Role</u>: <%= @employee.ESRolePickFromDropDown %></li> 
+		<li>End Customer</li>
+			<li style="margin-left: 20px;"><u>Program or TO Name</u>: <%= @employee.programOrTOName %></li>
+			<li style="margin-left: 20px;"><u>Organization Name</u>:  <%= @employee.organizationName %></li>
+			<li style="margin-left: 20px;"><u>Address</u>: <%= @employee.addressOrg %></li>
+			<li style="margin-left: 20px;"><u>POC</u>: <%= @employee.POC %></li>
+		<li><u>ES Contract/Subtract Number</u>: <%= @employee.ESContractSubtractNumber %></li>
+		<li><u>Full Contract Duration</u>: <%= @employee.fromFullContractDuration %> - <%= @employee.toFullContractDuration %></li>
+		<li><u>Base Period PoP</u>: <%= @employee.fromBasePeriodPoP %> - <%= @employee.toBasePeriodPoP %></li>
+		<li><u>Number of Option Years</u>: <%= @employee.numberOfOptionYears %></li>
+		<li><u>Current Contract Period</u>: <%= @employee.currentContractPeriod %></li>
+		<li><u>Current Period PoP</u>: <%= @employee.fromCurrentPeriodPoP %> - <%= @employee.toCurrentPeriodPoP %></li>
+	</ul>
+<div>
+<hr />
+<div class="contract-funding-summary">
+	<h3>Contract Funding Summary</h3>
+	<ul>
+		<li><u>Contract Type</u>: <%= @employee.contractTypePickFromDropDown %></li>
+		<li><u>Original Amount</u>: <span style="float:right;">$<%= @employee.originalAmount %></span></li>
+		<li><u>Funded Amount</u>: <span style="float:right;">$<%= @employee.fundedAmount %></span></li>
+		<li><u>Projected Full Term</u>: <span style="float:right;">$<%= @employee.projectedFullTerm %></span></li>
+		<li><u>Current Period Funding Type</u>: <%= @employee.currentPeriodFundingTypePickFromDropDown %></li>
+		<li><u>Period Currently Funded</u>: <%= @employee.fromPeriodCurrentlyFunded %> - <%= @employee.toPeriodCurrentlyFunded %></li>
+		<li><u>Current Period Funding Amount</u>: <span style="float:right;">$<%= @employee.currentPeriodFundingAmount %></span></li>
+	</ul>
+</div>
+<hr />
+<div class="financial-summary">
+	<h3 style="text-align:center">Financial Summary</h3>
+	<table align="center"; style="text-indent:10px;">
+		<tr>
+			<th>Current Period</th>
+			<th>Previous Period</th> 
+			<th>Current Calendar Year</th>
+		</tr>
+		<tr>
+		
+			<td><u>Funded Value Labor</u>: $<%= @employee.fundedValueLaborCurrent %></td>
+			<td><u>Funded Value Labor</u>: $<%= @employee.fundedValueLaborPrevious %></td>
+			<td><u>Budget Labor</u>: $<%= @employee.budgetLabor %></td> 
+		</tr>
+		<tr>
+			<td><u>Funded Value ODCs</u>: $<%= @employee.fundedValueODCsCurrent %></td>
+			<td><u>Funded Value ODCs</u>: $<%= @employee.fundedValueODCsPrevious %></td>
+			<td><u>Budget ODCs</u>: $<%= @employee.budgetODCs %></td>
+		</tr>
+		<tr>
+			<td><u>Actual Expended Labor</u>: $<%= @employee.actualExpendedLaborCurrent %></td>
+			<td></td>
+			<td><u>Actual Labor</u>: $<%= @employee.actualLabor %></td>
+		</tr>
+		<tr>
+			<td><u>Actual Expended ODCs</u>: $<%= @employee.actualExpendedLaborCurrent %></td>
+			<td></td>
+			<td><u>Actual ODCs</u>: $<%= @employee.actualODCs %></td>
+		</tr>
+	</table>
+</div>
+<%= link_to 'Back', employees_path %>
+| <%= link_to 'Edit', edit_employee_path(@employee) %>

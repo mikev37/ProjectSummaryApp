@@ -1,0 +1,29 @@
+<%= form_for @article do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name1 %>
+	<%= f.text_field :name2 %>
+	<%= f.text_field :name3 %>
+  </p>
+ 
+  <p>
+    <%= f.label :address %><br>
+    <%= f.text_field :address1 %><br>
+	<%= f.text_field :address2 %><br>
+	<%= f.text_field :address3 %><br>
+	<%= f.text_field :address4 %><br>
+	<%= f.text_field :address5 %>
+  </p>
+  
+  <p>
+    <%= f.label :"Date of Birth" %><br>
+    <%= f.text_field :dob %>
+  </p>
+  <p>
+    <%= f.label :"Start Date" %><br>
+    <%= f.text_field :start %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

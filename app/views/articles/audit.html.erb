@@ -1,0 +1,40 @@
+<p>
+	Logged in as <%= current_user.username %>.
+	<%= link_to "Sign Out", signed_out_path %>
+</p>
+<h1>Audit Trail</h1>
+<table>
+  <tr>
+    <th>Logged Time</th>
+    <th>User</th>
+	<th>Action</th>
+	<th>Object Changed(ID)</th>
+	<th>Changes Made</th>
+  </tr>
+
+  <% @audit_trail.each do |audit| %>
+    <tr>
+	  <td><%= audit.created_at %></td>
+      <td><%= User.find_by_id(audit.user_id).username %></td>
+	  <td>
+		<% if audit.audited_changes[:id]!=nil %>
+		CREATE
+	  <% else %>
+		EDIT
+	  <% end %>
+	  </td>
+	  <td>
+		  <% if audit.audited_changes[:name2]!=nil %>
+			<%= audit.audited_changes[:name2][1] %>(<%= audit[:id] %>)
+		  <% end %>
+	  </td>
+	  <% if audit.audited_changes[:id]==nil %>
+		<td><%= audit.audited_changes %></td>
+	  <% else %>
+		<td>Object Created</td>
+	  <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Back', articles_path %>

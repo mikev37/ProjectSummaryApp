@@ -1,0 +1,15 @@
+Employee Project Summary Rails Application Write Up 
+
+What I got working:
+•	CRUD version of project summaries to be able to create, read, update, and delete projects
+•	Drop downs for specified fields work
+•	Show page corresponds to template that Mike and I came up with that we ran through json_resume
+•	Links to each part of rails app
+What I worked on, but wasn’t able to achieve due to time constraints in figuring it out
+•	Couldn’t get nested forms working and spent too many hours trying to fix bugs	 related to get it to work 
+	o	i.e. making a “Add another work location” portion of creating a new project and adding the “Prime Contractor” and “Director Customer” when selecting certain ES Role choices
+•	For some reason the casing of the labels in the create page of the rails app are off
+Also, Alla said Wesley already achieved connecting to the right database and audit trails so I did not complete that either.
+
+Let me know if you have anymore questions about the application. 
+Reeve Barthelme

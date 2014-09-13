@@ -1,0 +1,212 @@
+<%= form_for @employee do |f| %>
+  <% if @employee.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@employee.errors.count, "error") %> prohibited
+      this article from being saved:</h2>
+    <ul>
+    <% @employee.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <h2>Basic Project Info</h2> 
+	  <p>
+		<%= f.label :"Contract"%><br>
+		<%= f.select :contractPickFromDropDown, options_for_select(["NSA", "FEMA Application", "Json resume"]) %>
+	  </p>
+ 
+	  <p>
+		<%= f.label :"Program or TO Name" %><br>
+		<%= f.text_field :programOrTOName %>
+	  </p>
+ 
+	  <p>
+		<%= f.label :"ES Business Unit" %><br>
+		<%= f.select :ESBusinessUnitPickFromDropDown, options_for_select(["Web Developers", "Mobile Developers", "Database Managers", "Art Team"]) %>
+	  </p>
+  
+	  <p>
+		<%= f.label :"Program Project Manager" %><br>
+		<%= f.select :programProjectManagerPickFromDropDown, options_for_select(["Alla Sharkova", "Dave Atherton"]) %>
+	  </p>
+  
+  <h2>Work Locations</h2>
+	  <p>
+		<%= f.label :"Telecommuting Allowed?" %><br>
+		<%= f.select :telecommutingAllowed, options_for_select(["Yes", "No"]) %>
+	  </p>
+	  
+	  <p>
+		<%= f.label :"Explanation" %><br>
+		<%= f.text_area :explanation %>
+	  </p>
+	  
+	<h3>Work Location(s)</h3>
+		  <p>
+			<%= f.label :"Work Location" %><br>
+			<%= f.text_field :workLocationName %>
+		  </p>
+		  <p>
+			<%= f.label :"Primary?" %><br>
+			<%= f.select :isPrimary, options_for_select(["Yes", "No"]) %>
+		  </p>
+		  <p>
+			<%= f.label :"Type?" %><br>
+			<%= f.text_field :work %>
+		  </p>
+		   <p>
+			<%= f.label :"Address" %><br>
+			<%= f.text_field :addressWork %>
+		  </p>
+    <h2>Contract Overview</h2>
+		<p>
+			<%= f.label :"Description of Contract" %><br>
+			<%= f.text_area :descriptionOfContract %>
+	    </p>
+		
+		<p>
+			<%= f.label :"Has ODCs?" %><br>
+			<%= f.select :hasODCs, options_for_select(["Yes", "No"]) %>
+		 </p>
+		 <p>
+			<%= f.label :"ES Role" %><br>
+			<%= f.select :ESRolePickFromDropDown, options_for_select(["Prime", "Sub-contractor", "2nd Tier Subcontractor or Lower"]) %>
+		 </p>
+		 <p>
+			<%= f.label :"End Customer" %><br>
+			<%= f.text_field :endCustomer %>
+		 </p>
+		 <p>
+			<%= f.label :"Organization Name" %><br>
+			<%= f.text_field :organizationName %>
+		 </p>
+		 <p>
+			<%= f.label :"Address" %><br>
+			<%= f.text_field :addressOrg %>
+		 </p>
+		 <p>
+			<%= f.label :"POC" %><br>
+			<%= f.text_field :POC %>
+		 </p>
+		 <p>
+			<%= f.label :"ES Contract/Subtract Number" %><br>
+			<%= f.text_field :ESContractSubtractNumber %>
+		 </p>
+		 <h3>Full Contract Duration</h3>
+			 <p>
+				<%= f.label :"From" %><br>
+				<%= f.text_field :fromFullContractDuration %>
+			 </p>
+			 <p>
+				<%= f.label :"To" %><br>
+				<%= f.text_field :toFullContractDuration %>
+			 </p>
+		 <h3>Base Period PoP</h3>
+		 	 <p>
+				<%= f.label :"From" %><br>
+				<%= f.text_field :fromBasePeriodPoP %>
+			 </p>
+			 <p>
+				<%= f.label :"To" %><br>
+				<%= f.text_field :toBasePeriodPoP %>
+			 </p>
+		<p>
+			<%= f.label :"Number of Option Years" %><br>
+			<%= f.text_field :numberOfOptionYears %>
+		</p>
+		<p>
+			<%= f.label :"Current Contract Period" %><br>
+			<%= f.text_field :currentContractPeriod %>
+		</p>
+		<h3>Current Period PoP</h3>
+			<p>
+				<%= f.label :"From" %><br>
+				<%= f.text_field :fromCurrentPeriodPoP %>
+			 </p>
+			 <p>
+				<%= f.label :"To" %><br>
+				<%= f.text_field :toCurrentPeriodPoP %>
+			 </p>
+	<h2>Contract Funding Summary</h2>
+		<p>
+			<%= f.label :"Contract Type" %><br>
+			<%= f.select :contractTypePickFromDropDown,  options_for_select(["Firm Fixed Price", "Time and Materials", "Cost Plus", "Other"])%>
+	    </p>
+		<p>
+			<%= f.label :"Original Amount" %><br>
+			<%= f.text_field :originalAmount %>
+	    </p>
+		<p>
+			<%= f.label :"Funded Amount" %><br>
+			<%= f.text_field :fundedAmount %>
+	    </p>
+		<p>
+			<%= f.label :"Projected Full Term" %><br>
+			<%= f.text_field :projectedFullTerm %>
+	    </p>
+		<p>
+			<%= f.label :"Current Period Funding Type" %><br>
+			<%= f.select :currentPeriodFundingTypePickFromDropDown, options_for_select(["Fully Funded", "Incrementally Funded"]) %>
+	    </p>
+		<h3>Period Currently Funded</h3>
+			<p>
+				<%= f.label :"From" %><br>
+				<%= f.text_field :fromPeriodCurrentlyFunded %>
+			 </p>
+			 <p>
+				<%= f.label :"To" %><br>
+				<%= f.text_field :toPeriodCurrentlyFunded %>
+			 </p>
+		<p>
+			<%= f.label :"Current Period Funding Amount" %><br>
+			<%= f.text_field :currentPeriodFundingAmount %>
+	    </p>
+	<h2>Financial Summary</h2>
+		<h3>Current Period</h3>
+			<p>
+				<%= f.label :"Funded Value Labor" %><br>
+				<%= f.text_field :fundedValueLaborCurrent %>
+			</p>
+			<p>
+				<%= f.label :"Funded Value ODCs" %><br>
+				<%= f.text_field :fundedValueODCsCurrent %>
+			</p>
+			<p>
+				<%= f.label :"Actual Expended Labor" %><br>
+				<%= f.text_field :actualExpendedLaborCurrent %>
+			</p>
+			<p>
+				<%= f.label :"Actual Expended ODCs" %><br>
+				<%= f.text_field :actualExpendedODCsCurrent %>
+			</p>
+		<h3>Previous Period</h3>
+			<p>
+				<%= f.label :"Funded Value Labor" %><br>
+				<%= f.text_field :fundedValueLaborPrevious %>
+			</p>
+			<p>
+				<%= f.label :"Funded Value ODCs" %><br>
+				<%= f.text_field :fundedValueODCsPrevious %>
+			</p>
+		<h3>Current Calender Year</h3>
+			<p>
+				<%= f.label :"Budget Labor" %><br>
+				<%= f.text_field :budgetLabor %>
+			</p>
+			<p>
+				<%= f.label :"Budget ODCs" %><br>
+				<%= f.text_field :budgetODCs %>
+			</p>
+			<p>
+				<%= f.label :"Actual Labor" %><br>
+				<%= f.text_field :actualLabor %>
+			</p>
+			<p>
+				<%= f.label :"Actual ODCs" %><br>
+				<%= f.text_field :actualODCs %>
+			</p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
